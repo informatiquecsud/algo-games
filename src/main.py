@@ -64,6 +64,7 @@ class CardList(jp.Div):
                     
         if self.card_container:
             self.card_container.delete()
+            self.cards = []
             
         self.card_container = jp.Div(a=self, classes="q-ma-md")
         
@@ -73,6 +74,8 @@ class CardList(jp.Div):
                 max_clicks=1,
                 classes="primary q-ma-xs q-pa-sm", style=f"width: {max_value_length}em")
             self.cards.append(card)
+            print("reset", card.nb_clicks)
+        print("=============")
                         
         number_to_find = choice(self.values)
         self.number_to_find.text = "Nombre à trouver: " + str(number_to_find)
