@@ -1,10 +1,7 @@
 from random import choice
 
 import justpy as jp
-
-class CardState:
-    nb_clicked = 0
-        
+      
 
 class Card(jp.Button):
     
@@ -47,6 +44,8 @@ class CardList(jp.Div):
         self.values = values
         super().__init__(**kwargs)
         self.cards = []
+
+        self.total_clicks = 0
         
         self.stats = jp.Div(a=self, classes="q-pa-sm bg-grey-3")
         self.number_to_find = jp.Div(a=self.stats, classes="q-ml-sm q-mb-sm")
@@ -78,18 +77,18 @@ class CardList(jp.Div):
         number_to_find = choice(self.values)
         self.number_to_find.text = "Nombre à trouver: " + str(number_to_find)
         
-        CardState.nb_clicked = 0
+        self.total_clicks = 0
         
                 
     def clicked(self, index, value):
         card_clicked = self.cards[index]            
         card_clicked.turn()
-        CardState.nb_clicked += 1
+        self.total_clicks += 1
         
     def reset_clicked(self, e):
         self.reset()
         
         
     def react(self, data):
-        self.nb_clicked.text = f"Nombre d'essais: {CardState.nb_clicked}"
+        self.nb_clicked.text = f"Nombre d'essais: {self.total_clicks}"
         

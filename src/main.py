@@ -3,6 +3,8 @@ import justpy as jp
 
 from utils import generate_random_numbers
 from cards import Card, CardList
+
+MAX_CARDS_NUM = 5000
     
 
 def html_consigne():
@@ -36,6 +38,12 @@ def binary_search(request):
     
     consigne = jp.parse_html(html_consigne(), a=wp)
     container = jp.Div(classes="container q-ma-md", a=wp)
+
+    if size > MAX_CARDS_NUM:
+        error_msg = f"Indiquez un nombre de cartes inférieur à {MAX_CARDS_NUM}"
+        error_message = jp.QBanner(a=wp, text=error_msg, classes="bg-red-4 text-white")
+        return wp
+        
         
     a = int(size * 0.01)
     distribution = [5, 30, 60, 4, 15, 70]
