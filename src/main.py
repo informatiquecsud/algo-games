@@ -4,8 +4,9 @@ import justpy as jp
 from utils import generate_random_numbers
 from cards import Card, CardList
 
-MAX_CARDS_NUM = 5000
+app = jp.app
     
+MAX_CARDS_NUM = 5000
 
 def html_consigne():
     return f'''
