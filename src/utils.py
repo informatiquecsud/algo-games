@@ -17,6 +17,6 @@ def generate_random_numbers(a, size, distribution):
             count += 1
             
                         
-    print("values generated", values)
+    #print("values generated", values)
 
     return values

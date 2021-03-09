@@ -27,7 +27,7 @@ def not_found_404(request):
     return wp
     
 
-@jp.SetRoute('/{username}/binarysearch')
+@jp.SetRoute('/binarysearch')
 def binary_search(request):
     wp = jp.QuasarPage()
     
