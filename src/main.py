@@ -31,7 +31,8 @@ def not_found_404(request):
 def binary_search(request):
     wp = jp.QuasarPage()
     
-    size = 50
+    
+    size = int(request.query_params.get('size', 50))
     
     consigne = jp.parse_html(html_consigne(), a=wp)
     container = jp.Div(classes="container q-ma-md", a=wp)
